@@ -70,8 +70,7 @@ nav {
     transition: color 300ms ease;
 }
 
-.nav-links a:hover,
-.close-button:hover {
+.nav-links a:hover {
     color: #ff8a00;
 }
 
@@ -237,7 +236,7 @@ MODAL STYLES
 .modal__description {
     padding: 80px;
     color: white;
-    line-height: 2.5;
+    line-height: 1.5;
 }
 
 .watch {
@@ -246,7 +245,7 @@ MODAL STYLES
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 100px;
+    margin
 }
 
 .close-button {
@@ -258,6 +257,7 @@ MODAL STYLES
     cursor: pointer;
     background-color: transparent;
     border: none;
+
 }
 
 /*

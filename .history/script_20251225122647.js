@@ -31,28 +31,28 @@ function showMovieDetails(title) {
 
 function movieHtml(movie) {
     return `<div class="movie-card" onclick="showMovieDetails('${movie.Title}')">
-        <div class="movie-card__container" onclick="toggleModal()">
-            <div class="movie__poster">
-                <img src="${movie.Poster}" alt="">
+            <div class="movie-card__container" onclick="toggleModal()">
+                <div class="movie__poster">
+                    <img src="${movie.Poster}" alt="">
+                </div>
+                <div class="movie__title">${movie.Title}</div>
+                <div class="movie__year">${movie.Year}</div>
             </div>
-            <div class="movie__title">${movie.Title}</div>
-            <div class="movie__year">${movie.Year}</div>
-        </div>
-    </div>`;
+        </div>`;
 }
 
-const movieDescriptionEl = document.querySelector('.movie-list');
+const movieListEl = document.querySelector('.movie-list');
 const movieTitle = localStorage.getItem('movieTitle');
 
-async function onSearchMovie(event) {
-    const title = event.target.value;
+async function onSearchMovie(e) {
+    const title = e.target.value;
     renderMovies(title);
 }
 
 async function renderMovies(title) {
     const movies = await fetch(`https://www.omdbapi.com/?apikey=5aa2e87d&s=${title}`);
     const moviesData = await movies.json();
-    movieDescriptionEl.innerHTML = moviesData.map((movie) => movieHtml(movie)).join('');
+    movieListEl.innerHTML = moviesData.map((movie) => movieHtml(movie)).join('');
 }
 
 function movieHtml(movie) {
@@ -74,4 +74,3 @@ function movieHtml(movie) {
             <button class="watch">Watch Now</button>
         </div>`;
 }
-

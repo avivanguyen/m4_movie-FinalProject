@@ -41,7 +41,7 @@ function movieHtml(movie) {
     </div>`;
 }
 
-const movieDescriptionEl = document.querySelector('.movie-list');
+const movieListEl = document.querySelector('.movie-list');
 const movieTitle = localStorage.getItem('movieTitle');
 
 async function onSearchMovie(event) {
@@ -52,7 +52,7 @@ async function onSearchMovie(event) {
 async function renderMovies(title) {
     const movies = await fetch(`https://www.omdbapi.com/?apikey=5aa2e87d&s=${title}`);
     const moviesData = await movies.json();
-    movieDescriptionEl.innerHTML = moviesData.map((movie) => movieHtml(movie)).join('');
+    movieListEl.innerHTML = moviesData.map((movie) => movieHtml(movie)).join('');
 }
 
 function movieHtml(movie) {
@@ -74,4 +74,3 @@ function movieHtml(movie) {
             <button class="watch">Watch Now</button>
         </div>`;
 }
-

@@ -75,3 +75,4 @@ function movieHtml(movie) {
         </div>`;
 }
 
+//Search bar functionality

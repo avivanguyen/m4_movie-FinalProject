@@ -70,8 +70,7 @@ nav {
     transition: color 300ms ease;
 }
 
-.nav-links a:hover,
-.close-button:hover {
+.nav-links a:hover {
     color: #ff8a00;
 }
 
@@ -87,7 +86,7 @@ nav {
     transition: transform 300ms ease;
 }
 .login button:hover,
-.modal button.watch:hover {
+.modal button:hover {
     transform: scale(1.1);
 }
 
@@ -237,16 +236,7 @@ MODAL STYLES
 .modal__description {
     padding: 80px;
     color: white;
-    line-height: 2.5;
-}
-
-.watch {
-    margin-top: auto;
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 100px;
+    line-height: 1.5;
 }
 
 .close-button {
@@ -258,6 +248,7 @@ MODAL STYLES
     cursor: pointer;
     background-color: transparent;
     border: none;
+
 }
 
 /*

@@ -74,4 +74,3 @@ function movieHtml(movie) {
             <button class="watch">Watch Now</button>
         </div>`;
 }
-

@@ -75,3 +75,6 @@ function movieHtml(movie) {
         </div>`;
 }
 
+//Search bar functionality
+const searchInputEl = document.getElementById('search-input');
+searchInputEl.addEventListener('input', onSearchMovie);
