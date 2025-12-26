@@ -17,6 +17,7 @@ function toggleModal() {
 const searchInput = document.getElementById('search-input');
 
 searchInput.addEventListener('input', onSearchMovie);
+  
 
 //API fetch functionality
 const movieListEl = document.getElementById('movie-list');
