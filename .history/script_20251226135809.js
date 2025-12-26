@@ -13,12 +13,7 @@ function toggleModal() {
     document.body.classList += ' modal--open';
 }
 
-//Search functionality
-async function onSearchMovie(event) {
-  const searchMovie = event.target.value;
-
-  if (searchMovie) return;
-}
+//Search?
 
 //API fetch functionality
 const movieListEl = document.getElementById('movie-list');

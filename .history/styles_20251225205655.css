@@ -134,7 +134,7 @@ SEARCH STYLES
 #search-button:hover {
     background: transparent;
     border: 2px solid transparent;
-    background-image: linear-gradient(#340101, #340101), linear-gradient(90deg, #ff8a00, #e52e71); 
+    background-image: linear-gradient(#340101, #340101), linear-gradient(90deg, #ff8a00, #e52e71);
     background-origin: border-box;
     background-clip: padding-box, border-box;
 }
@@ -169,7 +169,7 @@ RESULTS STYLES
 .movie-card {
     cursor: pointer;
     margin: 15px;
-    width: 200px; /*makes sure all cards are same size and that the text doesn't overflow*/
+    width: 200px; /*makes sure all cards are same size and that the text doesn't overflow
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

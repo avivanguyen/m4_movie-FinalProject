@@ -15,9 +15,7 @@ function toggleModal() {
 
 //Search functionality
 async function onSearchMovie(event) {
-  const searchMovie = event.target.value;
-
-  if (searchMovie) return;
+  const
 }
 
 //API fetch functionality

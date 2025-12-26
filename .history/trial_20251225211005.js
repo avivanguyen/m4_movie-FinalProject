@@ -13,13 +13,6 @@ function toggleModal() {
     document.body.classList += ' modal--open';
 }
 
-//Search functionality
-async function onSearchMovie(event) {
-  const searchMovie = event.target.value;
-
-  if (searchMovie) return;
-}
-
 //API fetch functionality
 const movieListEl = document.getElementById('movie-list');
 
@@ -57,7 +50,7 @@ async function onSearchMovie(event) {
 }
 
 async function renderMovies(title) {
-    const movies = await fetch(`https://www.omdbapi.com/?apikey=5aa2e87d&s=${title}`);
+    const movies = await fetch(`https://www.omdbapi.com/?apikey=5aa2e87d&s=${movie.itle}`);
     const moviesData = await movies.json();
     movieDescriptionEl.innerHTML = moviesData.map((movie) => movieHtml(movie)).join('');
 }
