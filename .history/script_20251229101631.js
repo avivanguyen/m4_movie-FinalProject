@@ -67,34 +67,5 @@ async function movieModalHtml(imdbID) {
       );
     const movie = await response.json();
 
-    document.querySelector(".modal__poster img").src = 
-      movie.Poster !== "N/A" ? movie.Poster : "./assets/movie_poster-placeholder.png";
-    document.querySelector(".modal__title").textContent = movie.Title;
-    document.querySelector(".modal__year").textContent = movie.Year;
-}
-function movieModalHtml(movie) {
-  return `
-    <div class="modal">
-            <div class="modal__half modal__poster">
-                <figure>
-                    <img src="${
-                      movie.Poster !== "N/A"
-                        ? movie.Poster
-                        : "./assets/movie_poster-placeholder.png"
-                    }" alt="">
-                </figure>
-            </div>
-            <div class="modal__half modal__description">
-                <h2 class="modal__title">${movie.Title}</h2>
-                <p class="modal__year">${movie.Year}</p>
-                <p class="modal__plot">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <ul class="modal__details">
-                    <li><strong>Director:</strong> Director Name</li>
-                    <li><strong>Actors:</strong> Actor 1, Actor 2, Actor 3</li>
-                    <li><strong>Runtime:</strong> XX min</li>
-                </ul>
-                <button class="watch">Watch Now</button>
-            </div>
-            <button class="close-button" onclick="toggleModal()">Close</button>
-        </div>`;
+    const details
 }

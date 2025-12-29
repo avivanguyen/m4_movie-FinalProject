@@ -329,27 +329,11 @@ RESPONSIVE STYLES
         font-size: 20px;
     }
 
-    .results__section {
-        margin: 0 20px;
-    }
-    .movie {
-        padding: 0;
-    }
-
     .modal {
         flex-direction: column;
     }
     .modal__description {
         padding: 18px;
         line-height: 1.8;
-    }
-    .modal__poster {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-    .modal__poster img {
-        width: 50%;
-    }
+    
 }

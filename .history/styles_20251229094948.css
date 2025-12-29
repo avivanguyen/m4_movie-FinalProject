@@ -331,10 +331,6 @@ RESPONSIVE STYLES
 
     .results__section {
         margin: 0 20px;
-    }
-    .movie {
-        padding: 0;
-    }
 
     .modal {
         flex-direction: column;

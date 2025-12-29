@@ -301,14 +301,13 @@ RESPONSIVE STYLES
     .close-button {
         font-size: 18px;
     }
-}
 
 @media (max-width: 480px) {
     nav {
         padding: 8px 20px;
     }
     .nav-links {
-        gap: 50px;
+        gap
     }
 
     .login__text {
@@ -318,38 +317,4 @@ RESPONSIVE STYLES
         padding: 10px;
     }
 
-    .movie-card {
-        margin: 8px;
-    }
-    .movie__poster img {
-        width: 150px;
-        height: auto;
-    }
-    .movie__title, .movie__year {
-        font-size: 20px;
-    }
-
-    .results__section {
-        margin: 0 20px;
-    }
-    .movie {
-        padding: 0;
-    }
-
-    .modal {
-        flex-direction: column;
-    }
-    .modal__description {
-        padding: 18px;
-        line-height: 1.8;
-    }
-    .modal__poster {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-    .modal__poster img {
-        width: 50%;
-    }
 }

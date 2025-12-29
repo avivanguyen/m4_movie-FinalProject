@@ -61,17 +61,9 @@ function movieCardHtml(movie) {
 }
 //Movie modal results
 async function movieModalHtml(imdbID) {
-    toggleModal();
-    const response = await fetch(
-        `https://www.omdbapi.com/?apikey=5aa2e87d&i=${imdbID}`
-      );
-    const movie = await response.json();
-
-    document.querySelector(".modal__poster img").src = 
-      movie.Poster !== "N/A" ? movie.Poster : "./assets/movie_poster-placeholder.png";
-    document.querySelector(".modal__title").textContent = movie.Title;
-    document.querySelector(".modal__year").textContent = movie.Year;
+    
 }
+
 function movieModalHtml(movie) {
   return `
     <div class="modal">

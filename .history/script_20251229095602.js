@@ -13,6 +13,33 @@ function toggleModal() {
   document.body.classList += " modal--open";
 }
 
+async function openMovieModal(imdbID) {
+  toggleModal();
+  
+  // Fetch detailed movie data by IMDb ID
+  const response = await fetch(
+    `https://www.omdbapi.com/?apikey=5aa2e87d&i=${imdbID}`
+  );
+  const movie = await response.json();
+  
+  // Update modal content
+  document.querySelector(".modal__poster img").src = 
+    movie.Poster !== "N/A" ? movie.Poster : "./assets/movie_poster-placeholder.png";
+  document.querySelector(".modal__title").textContent = movie.Title;
+  document.querySelector(".modal__year").textContent = movie.Year;
+  document.querySelector(".modal__plot").textContent = movie.Plot || "No plot available.";
+  
+  // Update details list
+  const detailsList = document.querySelector(".modal__details");
+  detailsList.innerHTML = `
+    <li><strong>Director:</strong> ${movie.Director || "N/A"}</li>
+    <li><strong>Actors:</strong> ${movie.Actors || "N/A"}</li>
+    <li><strong>Runtime:</strong> ${movie.Runtime || "N/A"}</li>
+    <li><strong>Genre:</strong> ${movie.Genre || "N/A"}</li>
+    <li><strong>Rating:</strong> ${movie.imdbRating || "N/A"}/10</li>
+  `;
+}
+
 //Search functionality
 async function onSearchMovie(event) {
   const searchMovie = event.target.value;
@@ -35,18 +62,15 @@ async function onSearchMovie(event) {
       movieCardHtml(movie)
     ).join("");
   } else {
-    movieContainer.innerHTML = 
-        `<div class="breadcrumb">
-            <h2>Results showing for "<span id="search-term">${searchMovie}</span>"</h2>
-        </div>`;
-}
+    movieContainer.innerHTML = `<p style="color: white; text-align: center; width: 100%;">No movies found for "${searchMovie}"</p>`;
+  }
 }
 
 //Movie card results
 function movieCardHtml(movie) {
   return `
     <div class="movie-card">
-        <div class="movie-card__container" onclick="toggleModal()">
+        <div class="movie-card__container" onclick="openMovieModal('${movie.imdbID}')">
             <div class="movie__poster">
                 <img src="${
                   movie.Poster !== "N/A"
@@ -60,18 +84,6 @@ function movieCardHtml(movie) {
     </div>`;
 }
 //Movie modal results
-async function movieModalHtml(imdbID) {
-    toggleModal();
-    const response = await fetch(
-        `https://www.omdbapi.com/?apikey=5aa2e87d&i=${imdbID}`
-      );
-    const movie = await response.json();
-
-    document.querySelector(".modal__poster img").src = 
-      movie.Poster !== "N/A" ? movie.Poster : "./assets/movie_poster-placeholder.png";
-    document.querySelector(".modal__title").textContent = movie.Title;
-    document.querySelector(".modal__year").textContent = movie.Year;
-}
 function movieModalHtml(movie) {
   return `
     <div class="modal">

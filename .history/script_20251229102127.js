@@ -71,9 +71,10 @@ async function movieModalHtml(imdbID) {
       movie.Poster !== "N/A" ? movie.Poster : "./assets/movie_poster-placeholder.png";
     document.querySelector(".modal__title").textContent = movie.Title;
     document.querySelector(".modal__year").textContent = movie.Year;
-}
-function movieModalHtml(movie) {
-  return `
+    document.querySelector(".modal__plot").textContent = movie.Plot;
+
+    const detailsList = document.querySelector(".modal");
+    detailsList.innerHTML = `
     <div class="modal">
             <div class="modal__half modal__poster">
                 <figure>

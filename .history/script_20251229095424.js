@@ -32,14 +32,11 @@ async function onSearchMovie(event) {
 
   if (data.Response === "True") {
     movieContainer.innerHTML = data.Search.map((movie) =>
-      movieCardHtml(movie)
+      movieCardHtml(movie) + movieModalHtml(movie)
     ).join("");
   } else {
-    movieContainer.innerHTML = 
-        `<div class="breadcrumb">
-            <h2>Results showing for "<span id="search-term">${searchMovie}</span>"</h2>
-        </div>`;
-}
+    movieContainer.innerHTML = `<p style="color: white; text-align: center; width: 100%;">No movies found for "${searchMovie}"</p>`;
+  }
 }
 
 //Movie card results
@@ -60,33 +57,17 @@ function movieCardHtml(movie) {
     </div>`;
 }
 //Movie modal results
-async function movieModalHtml(imdbID) {
-    toggleModal();
-    const response = await fetch(
-        `https://www.omdbapi.com/?apikey=5aa2e87d&i=${imdbID}`
-      );
-    const movie = await response.json();
-
-    document.querySelector(".modal__poster img").src = 
-      movie.Poster !== "N/A" ? movie.Poster : "./assets/movie_poster-placeholder.png";
-    document.querySelector(".modal__title").textContent = movie.Title;
-    document.querySelector(".modal__year").textContent = movie.Year;
-}
 function movieModalHtml(movie) {
   return `
     <div class="modal">
             <div class="modal__half modal__poster">
                 <figure>
-                    <img src="${
-                      movie.Poster !== "N/A"
-                        ? movie.Poster
-                        : "./assets/movie_poster-placeholder.png"
-                    }" alt="">
+                    <img src="./assets/movie_poster-placeholder.png" alt="">
                 </figure>
             </div>
             <div class="modal__half modal__description">
-                <h2 class="modal__title">${movie.Title}</h2>
-                <p class="modal__year">${movie.Year}</p>
+                <h2 class="modal__title">Movie Title</h2>
+                <p class="modal__year">20XX</p>
                 <p class="modal__plot">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <ul class="modal__details">
                     <li><strong>Director:</strong> Director Name</li>
