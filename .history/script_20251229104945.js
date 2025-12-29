@@ -32,7 +32,7 @@ async function onSearchMovie(event) {
 
   if (data.Response === "True") {
     movieContainer.innerHTML = data.Search
-    .slice(0, 6) // Limit to first 6 results//
+    .slice(0, )
       .map((movie) => movieCardHtml(movie))
       .join("");
   } else {
