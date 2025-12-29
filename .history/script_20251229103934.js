@@ -31,7 +31,7 @@ async function onSearchMovie(event) {
   const movieContainer = document.querySelector(".movie");
 
   if (data.Response === "True") {
-    movieContainer.innerHTML = data.Search
+    movieContainer.innerHTML = data.Search.slice(0, 6)
       .map((movie) => movieCardHtml(movie))
       .join("");
   } else {

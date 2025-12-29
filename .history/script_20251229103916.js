@@ -31,14 +31,15 @@ async function onSearchMovie(event) {
   const movieContainer = document.querySelector(".movie");
 
   if (data.Response === "True") {
-    movieContainer.innerHTML = data.Search
-      .map((movie) => movieCardHtml(movie))
-      .join("");
+    movieContainer.innerHTML = data.Search.slice(0, 6).map((movie) =>
+      movieCardHtml(movie)
+    ).join("");
   } else {
-    movieContainer.innerHTML = `<div class="breadcrumb">
+    movieContainer.innerHTML = 
+        `<div class="breadcrumb">
             <h2>Results showing for "<span id="search-term">${searchMovie}</span>"</h2>
         </div>`;
-  }
+}
 }
 
 //Movie card results
@@ -60,18 +61,16 @@ function movieCardHtml(movie) {
 }
 //Movie modal results
 async function movieModalHtml(imdbID) {
-  toggleModal();
-  const response = await fetch(
-    `https://www.omdbapi.com/?apikey=5aa2e87d&i=${imdbID}`
-  );
-  const movie = await response.json();
+    toggleModal();
+    const response = await fetch(
+        `https://www.omdbapi.com/?apikey=5aa2e87d&i=${imdbID}`
+      );
+    const movie = await response.json();
 
-  document.querySelector(".modal__poster img").src =
-    movie.Poster !== "N/A"
-      ? movie.Poster
-      : "./assets/movie_poster-placeholder.png";
-  document.querySelector(".modal__title").textContent = movie.Title;
-  document.querySelector(".modal__year").textContent = movie.Year;
+    document.querySelector(".modal__poster img").src = 
+      movie.Poster !== "N/A" ? movie.Poster : "./assets/movie_poster-placeholder.png";
+    document.querySelector(".modal__title").textContent = movie.Title;
+    document.querySelector(".modal__year").textContent = movie.Year;
 }
 function movieModalHtml(movie) {
   return `
