@@ -23,17 +23,12 @@ async function onSearchMovie(event) {
   document.getElementById("search-term").textContent = searchMovie;
 
   const movieContainer = document.querySelector(".movie");
-  const loadingSpinner = document.querySelector(".loading");
-
-  loadingSpinner.classList.remove("hidden");
 
   // Fetch movies from API
   const response = await fetch(
     `https://www.omdbapi.com/?apikey=5aa2e87d&s=${searchMovie}`
   );
   const data = await response.json();
-
-  loadingSpinner.classList.add("hidden");
 
   if (data.Response === "True") {
     movieContainer.innerHTML = data.Search

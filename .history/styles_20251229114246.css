@@ -22,9 +22,6 @@ li {
     list-style: none;
 }
 
-.hidden {
-    display: none !important;
-}
 
 /*
 NAVIGATION STYLES
@@ -151,26 +148,16 @@ SEARCH STYLES
 LOADING STYLES
 */
 .loading {
+    display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-    opacity: 1;
-    transition: opacity 500ms ease-in-out;
-}
-
-.loading:not(.hidden) {
-    display: flex;
-}
-
-.loading.hidden {
-    opacity: 0;
-    transition: opacity 500ms ease-in-out 1000ms; 
 }
 
 .fa-spinner {
-    font-size: 35px;
+    font-size: 30px;
     color: white;
-}
+    }
 
 /*
 RESULTS STYLES

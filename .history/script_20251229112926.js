@@ -23,9 +23,12 @@ async function onSearchMovie(event) {
   document.getElementById("search-term").textContent = searchMovie;
 
   const movieContainer = document.querySelector(".movie");
-  const loadingSpinner = document.querySelector(".loading");
+  const loadingSkeleton = document.querySelector(".loading-skeleton");
 
-  loadingSpinner.classList.remove("hidden");
+  loadingSkeleton.classList.remove("hidden");
+  movieContainer.classList.add("hidden");
+
+  const startTime = Date.now();
 
   // Fetch movies from API
   const response = await fetch(
@@ -33,7 +36,14 @@ async function onSearchMovie(event) {
   );
   const data = await response.json();
 
-  loadingSpinner.classList.add("hidden");
+  // Ensure loading shows for at least 300ms
+  const elapsedTime = Date.now() - startTime;
+  const remainingTime = Math.max(0, 300 - elapsedTime);
+  
+  await new Promise(resolve => setTimeout(resolve, remainingTime));
+  
+  loadingSkeleton.classList.add("hidden");
+  movieContainer.classList.remove("hidden");
 
   if (data.Response === "True") {
     movieContainer.innerHTML = data.Search

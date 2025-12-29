@@ -25,6 +25,7 @@ async function onSearchMovie(event) {
   const movieContainer = document.querySelector(".movie");
   const loadingSpinner = document.querySelector(".loading");
 
+  // Show loading spinner
   loadingSpinner.classList.remove("hidden");
 
   // Fetch movies from API
@@ -33,6 +34,7 @@ async function onSearchMovie(event) {
   );
   const data = await response.json();
 
+  // Hide loading spinner
   loadingSpinner.classList.add("hidden");
 
   if (data.Response === "True") {

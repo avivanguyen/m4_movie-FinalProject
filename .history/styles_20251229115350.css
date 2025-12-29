@@ -155,7 +155,7 @@ LOADING STYLES
     align-items: center;
     margin-top: 20px;
     opacity: 1;
-    transition: opacity 500ms ease-in-out;
+    transition: opacity 1s ease-in-out;
 }
 
 .loading:not(.hidden) {
@@ -164,7 +164,7 @@ LOADING STYLES
 
 .loading.hidden {
     opacity: 0;
-    transition: opacity 500ms ease-in-out 1000ms; 
+    transition: opacity 500ms ease-in-out 500ms; 
 }
 
 .fa-spinner {

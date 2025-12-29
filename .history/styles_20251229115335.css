@@ -164,7 +164,7 @@ LOADING STYLES
 
 .loading.hidden {
     opacity: 0;
-    transition: opacity 500ms ease-in-out 1000ms; 
+    transition: opacity 500ms ease-in-out 500ms; 
 }
 
 .fa-spinner {

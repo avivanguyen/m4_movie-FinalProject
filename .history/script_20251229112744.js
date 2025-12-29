@@ -23,9 +23,11 @@ async function onSearchMovie(event) {
   document.getElementById("search-term").textContent = searchMovie;
 
   const movieContainer = document.querySelector(".movie");
-  const loadingSpinner = document.querySelector(".loading");
+  const loadingSkeleton = document.querySelector(".loading-skeleton");
 
-  loadingSpinner.classList.remove("hidden");
+  // Show loading skeleton
+  loadingSkeleton.classList.remove("hidden");
+  movieContainer.classList.add("hidden");
 
   // Fetch movies from API
   const response = await fetch(
@@ -33,7 +35,10 @@ async function onSearchMovie(event) {
   );
   const data = await response.json();
 
-  loadingSpinner.classList.add("hidden");
+  const movieContainer = document.querySelector(".movie");
+  
+  loadingSkeleton.classList.add("hidden");
+  movieContainer.classList.remove("hidden");
 
   if (data.Response === "True") {
     movieContainer.innerHTML = data.Search

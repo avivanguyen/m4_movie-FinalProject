@@ -23,17 +23,12 @@ async function onSearchMovie(event) {
   document.getElementById("search-term").textContent = searchMovie;
 
   const movieContainer = document.querySelector(".movie");
-  const loadingSpinner = document.querySelector(".loading");
-
-  loadingSpinner.classList.remove("hidden");
 
   // Fetch movies from API
   const response = await fetch(
     `https://www.omdbapi.com/?apikey=5aa2e87d&s=${searchMovie}`
   );
   const data = await response.json();
-
-  loadingSpinner.classList.add("hidden");
 
   if (data.Response === "True") {
     movieContainer.innerHTML = data.Search
@@ -49,6 +44,7 @@ async function onSearchMovie(event) {
 
 //Movie card results
 function movieCardHtml(movie) {
+  new Promise((resolve) => setTimeout(() => resolve([
   return `
     <div class="movie-card">
         <div class="movie-card__container" onclick="toggleModal()">
@@ -66,7 +62,7 @@ function movieCardHtml(movie) {
 }
 
 // //Movie modal results
-// async function movieModalHtml(imdbID) {
+async function movieModalHtml(imdbID) {
 //   toggleModal();
 //   const response = await fetch(
 //     `https://www.omdbapi.com/?apikey=5aa2e87d&i=${imdbID}`
@@ -105,4 +101,5 @@ function movieCardHtml(movie) {
 //             </div>
 //             <button class="close-button" onclick="toggleModal()">Close</button>
 //         </div>`;
+]), 1000));
 // }

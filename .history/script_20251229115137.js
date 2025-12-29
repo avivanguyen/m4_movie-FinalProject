@@ -33,6 +33,7 @@ async function onSearchMovie(event) {
   );
   const data = await response.json();
 
+  // Hide loading spinner
   loadingSpinner.classList.add("hidden");
 
   if (data.Response === "True") {
