@@ -94,7 +94,9 @@ function onSortChange(event) {
       } else if (sortValue === "title-descending") {
         return titleA > titleB ? -1 : titleA < titleB ? 1 : 0;
       } else if (sortValue === "year-descending") {
+        return yearB - yearA; // Newest first
       } else if (sortValue === "year-ascending") {
+        return yearA - yearB; // Oldest first
       }
       return 0;
     });

@@ -41,7 +41,7 @@ async function onSearchMovie(event) {
   if (data.Response === "True") {
     // Store original order from API
     originalMovieOrder = data.Search.slice(0, 6);
-
+    
     movieContainer.innerHTML = originalMovieOrder
       .map((movie) => movieCardHtml(movie))
       .join("");
@@ -81,24 +81,27 @@ function onSortChange(event) {
     movieContainer.innerHTML = originalMovieOrder
       .map((movie) => movieCardHtml(movie))
       .join("");
-  } else {
+
+  } else { //filter movies
     const movies = Array.from(movieContainer.children);
     movies.sort((a, b) => {
       const titleA = a.querySelector(".movie__title").textContent.toUpperCase();
       const titleB = b.querySelector(".movie__title").textContent.toUpperCase();
       const yearA = parseInt(a.querySelector(".movie__year").textContent);
       const yearB = parseInt(b.querySelector(".movie__year").textContent);
-
+      
       if (sortValue === "title-ascending") {
         return titleA < titleB ? -1 : titleA > titleB ? 1 : 0;
       } else if (sortValue === "title-descending") {
         return titleA > titleB ? -1 : titleA < titleB ? 1 : 0;
       } else if (sortValue === "year-descending") {
+        return yearB - yearA; // Newest first
       } else if (sortValue === "year-ascending") {
+        return yearA - yearB; // Oldest first
       }
       return 0;
     });
-
+    
     movieContainer.innerHTML = "";
     movies.forEach((movie) => movieContainer.appendChild(movie));
   }

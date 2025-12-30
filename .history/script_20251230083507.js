@@ -82,6 +82,7 @@ function onSortChange(event) {
       .map((movie) => movieCardHtml(movie))
       .join("");
   } else {
+    //filter movies
     const movies = Array.from(movieContainer.children);
     movies.sort((a, b) => {
       const titleA = a.querySelector(".movie__title").textContent.toUpperCase();
@@ -94,7 +95,9 @@ function onSortChange(event) {
       } else if (sortValue === "title-descending") {
         return titleA > titleB ? -1 : titleA < titleB ? 1 : 0;
       } else if (sortValue === "year-descending") {
+        return yearB - yearA; // Newest first
       } else if (sortValue === "year-ascending") {
+        return yearA - yearB; // Oldest first
       }
       return 0;
     });

@@ -91,6 +91,7 @@ function onSortChange(event) {
 
       if (sortValue === "title-ascending") {
         return titleA < titleB ? -1 : titleA > titleB ? 1 : 0;
+        
       } else if (sortValue === "title-descending") {
         return titleA > titleB ? -1 : titleA < titleB ? 1 : 0;
       } else if (sortValue === "year-descending") {
