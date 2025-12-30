@@ -361,12 +361,11 @@ RESPONSIVE STYLES
     }
 
     .breadcrumb {
-        margin-bottom: 8px;
+        
     }
 
     .sort {
         margin-top: 0px;
-        margin-left: 20px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;

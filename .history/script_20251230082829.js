@@ -81,8 +81,7 @@ function onSortChange(event) {
     movieContainer.innerHTML = originalMovieOrder
       .map((movie) => movieCardHtml(movie))
       .join("");
-
-  } else { //alphabetically filter movies
+  } else {
     const movies = Array.from(movieContainer.children);
     movies.sort((a, b) => {
       const titleA = a.querySelector(".movie__title").textContent.toUpperCase();

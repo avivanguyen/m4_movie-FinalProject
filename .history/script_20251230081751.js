@@ -26,7 +26,19 @@ async function onSearchMovie(event) {
   const loadingSpinner = document.querySelector(".loading");
   const sortSelect = document.getElementById("sort-select");
 
-  sortSelect.value = "title-default";
+  //Filter movie Title A-Z or Z-A
+  sortSelect.value = "title-ascending"; // Reset to default on new search
+  sortSelect.onchange = function () {
+    const movies = Array.from(movieContainer.children);
+    movies.sort((a, b) => {
+      const titleA = a.querySelector(".movie__title").textContent.toUpperCase();
+      const titleB = b.querySelector(".movie__title").textContent.toUpperCase();
+      if (this.value === "title-ascending") {
+        return titleA < titleB ? -1 : titleA > titleB ? 1 : 0;
+      } else {
+        return titleA > titleB ? -1 : titleA < titleB ? 1 : 0;
+      }
+      
 
   loadingSpinner.classList.remove("hidden");
 
@@ -39,10 +51,8 @@ async function onSearchMovie(event) {
   loadingSpinner.classList.add("hidden");
 
   if (data.Response === "True") {
-    // Store original order from API
-    originalMovieOrder = data.Search.slice(0, 6);
-    
-    movieContainer.innerHTML = originalMovieOrder
+    movieContainer.innerHTML = data.Search
+    .slice(0, 6) // Limit to first 6 results//
       .map((movie) => movieCardHtml(movie))
       .join("");
   } else {
@@ -68,37 +78,6 @@ function movieCardHtml(movie) {
             <div class="movie__year">${movie.Year}</div>
         </div>
     </div>`;
-}
-
-//Movie filter functionality
-let originalMovieOrder = [];
-
-function onSortChange(event) {
-  const movieContainer = document.querySelector(".movie");
-  const sortValue = event.target.value;
-
-  if (sortValue === "title-default") {
-    movieContainer.innerHTML = originalMovieOrder
-      .map((movie) => movieCardHtml(movie))
-      .join("");
-
-  } else { //alphabetically filter movies
-    const movies = Array.from(movieContainer.children);
-    movies.sort((a, b) => {
-      const titleA = a.querySelector(".movie__title").textContent.toUpperCase();
-      const titleB = b.querySelector(".movie__title").textContent.toUpperCase();
-      
-      if (sortValue === "title-ascending") {
-        return titleA < titleB ? -1 : titleA > titleB ? 1 : 0;
-      } else if (sortValue === "title-descending") {
-        return titleA > titleB ? -1 : titleA < titleB ? 1 : 0;
-      }
-      return 0;
-    });
-    
-    movieContainer.innerHTML = "";
-    movies.forEach((movie) => movieContainer.appendChild(movie));
-  }
 }
 
 // //Movie modal results

@@ -71,18 +71,19 @@ function movieCardHtml(movie) {
 }
 
 //Movie filter functionality
-let originalMovieOrder = [];
+let originalMovieOrder = []; // Store the original order from API
 
 function onSortChange(event) {
   const movieContainer = document.querySelector(".movie");
   const sortValue = event.target.value;
 
   if (sortValue === "title-default") {
+    // Restore original order from API
     movieContainer.innerHTML = originalMovieOrder
       .map((movie) => movieCardHtml(movie))
       .join("");
-
-  } else { //alphabetically filter movies
+  } else {
+    // Sort alphabetically
     const movies = Array.from(movieContainer.children);
     movies.sort((a, b) => {
       const titleA = a.querySelector(".movie__title").textContent.toUpperCase();
