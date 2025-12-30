@@ -96,7 +96,6 @@ function onSortChange(event) {
       } else if (sortValue === "year-descending") {
         return yearA > yearB ? -1 : yearA < yearB ? 1 : 0;
       } else if (sortValue === "year-ascending") {
-        return yearA < yearB ? -1 : yearA > yearB ? 1 : 0;
       }
       return 0;
     });
