@@ -124,7 +124,7 @@ RESPONSIVE MENU STYLES
     background-color: #4d0d0d;
     border: 1px solid black;
     border-radius: 4px 0 0 4px;
-    width: 50%;
+    width: 30%;
     height: 20%;
     display: none;
     flex-direction: column;
@@ -146,9 +146,6 @@ RESPONSIVE MENU STYLES
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
-.menu__links a {
-    font-size: 24px;
 }
 
 .btn__menu--close {
@@ -448,16 +445,10 @@ RESPONSIVE STYLES
     .btn__menu {
         margin-right: -350px;
     }
-    .btn__menu--close {
-        right: 380px;
-    }
 }
 @media (max-width:520px) {
     .btn__menu {
         margin-right: -300px;
-    }
-    .btn__menu--close {
-        right: 340px;
     }
 }
 @media (max-width:470px) {
@@ -467,9 +458,6 @@ RESPONSIVE STYLES
 }
 
 @media (max-width: 480px) {
-    .btn__menu--close {
-        right: 320px;
-    }
     .movie-card {
         margin: 8px;
     }

@@ -46,8 +46,7 @@ nav {
 }
 
 .logo__ticket,
-.logo__title,
-.btn__menu {
+.logo__title {
     background: linear-gradient(90deg, #ff8a00, #e52e71);
     background-clip: text;
     -webkit-background-clip: text;
@@ -69,19 +68,14 @@ nav {
     gap: 100px;
 }
 
-.nav-links a,
-.menu__links a,
-.btn__menu--close,
-.close-button {
+.nav-links a {
     color: white;
     font-size: 16px;
     transition: color 300ms ease;
 }
 
 .nav-links a:hover,
-.close-button:hover,
-.menu__links a:hover,
-.btn__menu--close:hover {
+.close-button:hover {
     color: #ff8a00;
 }
 
@@ -105,61 +99,6 @@ nav {
     color: white;
 }
 
-/*
-RESPONSIVE MENU STYLES
-*/
-.btn__menu {
-    font-size: 28px;
-    cursor: pointer;
-    border: none;
-    text-align: center;
-    display: none;
-    margin-right: -380px;
-}
-
-.menu__backdrop {
-    position: fixed;
-    right: 0;
-    top: 10px;
-    background-color: #4d0d0d;
-    border: 1px solid black;
-    border-radius: 4px 0 0 4px;
-    width: 50%;
-    height: 20%;
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-    visibility: hidden;
-    transition: visibility 400ms, opacity 400ms;
-    opacity: 0;
-}
-
-.menu__backdrop--open {
-    display: flex;
-    visibility: visible;
-    opacity: 1;
-}
-
-.menu__links {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-.menu__links a {
-    font-size: 24px;
-}
-
-.btn__menu--close {
-    position: absolute;
-    right: 400px;
-    top: 10px;
-    font-size: 20px;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-}
 
 /*
 SEARCH STYLES
@@ -434,42 +373,9 @@ RESPONSIVE STYLES
     }
 }
 
-@media (max-width: 600px) {
-    .nav-links {
-        display: none;
-    }
-
-    .btn__menu {
-        display: block;
-    }
-}
-
-@media (max-width:560px) {
-    .btn__menu {
-        margin-right: -350px;
-    }
-    .btn__menu--close {
-        right: 380px;
-    }
-}
-@media (max-width:520px) {
-    .btn__menu {
-        margin-right: -300px;
-    }
-    .btn__menu--close {
-        right: 340px;
-    }
-}
-@media (max-width:470px) {
-    .btn__menu {
-        margin-right: -280px;
-    }
-}
+@media (max-width)
 
 @media (max-width: 480px) {
-    .btn__menu--close {
-        right: 320px;
-    }
     .movie-card {
         margin: 8px;
     }

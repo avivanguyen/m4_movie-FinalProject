@@ -464,12 +464,12 @@ RESPONSIVE STYLES
     .btn__menu {
         margin-right: -280px;
     }
-}
-
-@media (max-width: 480px) {
     .btn__menu--close {
         right: 320px;
     }
+}
+
+@media (max-width: 480px) {
     .movie-card {
         margin: 8px;
     }

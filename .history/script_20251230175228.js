@@ -2,16 +2,7 @@
 //base URL: https://www.omdbapi.com/?apikey=5aa2e87d&s=MOVIE_NAME_HERE
 
 //Hamburger menu
-function openMenu() {
-  document
-    .querySelector(".menu__backdrop")
-    .classList.add("menu__backdrop--open");
-}
-function closeMenu() {
-  document
-    .querySelector(".menu__backdrop")
-    .classList.remove("menu__backdrop--open");
-}
+function 
 
 //Modal functionality
 let isModalOpen = false;

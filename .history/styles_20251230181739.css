@@ -467,9 +467,6 @@ RESPONSIVE STYLES
 }
 
 @media (max-width: 480px) {
-    .btn__menu--close {
-        right: 320px;
-    }
     .movie-card {
         margin: 8px;
     }

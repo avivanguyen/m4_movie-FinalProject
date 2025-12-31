@@ -3,14 +3,7 @@
 
 //Hamburger menu
 function openMenu() {
-  document
-    .querySelector(".menu__backdrop")
-    .classList.add("menu__backdrop--open");
-}
-function closeMenu() {
-  document
-    .querySelector(".menu__backdrop")
-    .classList.remove("menu__backdrop--open");
+  document.body.classList += " menu--open";
 }
 
 //Modal functionality
